@@ -7,8 +7,8 @@
 
 
 
-# V061112	=	O acesso à Internet foi feito através de microcomputador
 # V061113	=	O acesso à Internet foi feito através de telefone celular
+# V061112	=	O acesso à Internet foi feito através de microcomputador
 # V061114	=	O acesso à Internet foi feito através de tablet
 # V061115	=	O acesso à Internet foi feito através de tv
 # V061116	=	O acesso à Internet foi feito através de outro equipamento eletrônico
@@ -26,5 +26,10 @@ print("ok")
 dados = pd.read_csv('Dados_selecionados.csv')
 print("ok")
 # dados = dados["UF"]
-dados = dados.loc["UF", "V8005", "V06111", "V4750", "V4745"]
+lista = ["UF", "V8005", "V06111", "V4750", "V4745"]
+
+
+dados = dados.loc[:,lista]
 dados
+
+dados_not null = dados[pd.notnull(dados.UF)&pd.notnull(dados.V8005)&pd.notnull(dados.V06111)&pd.notnull(dados.V4750)&pd.notnull(dados.V4745)]
